@@ -1,0 +1,23 @@
+<%= turbo_frame_tag 'Session' do %>
+  <div class="container mt-5 pt-5">
+    <div class="row">
+      <div class="col-md-6 offset-3 mt-6">
+        <div class="alert alert-success" role="alert">
+          <% flash.each do |type, msg| %>
+            <p><%= msg %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title"><%= @user.email %></h5>
+            <%= button_to "Log out", logout_sessions_path, method: :delete, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
